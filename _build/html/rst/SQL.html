@@ -17,6 +17,7 @@
     <script src="../_static/translations.js"></script>
     <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
     <link rel="search" title="Поиск" href="../search.html" />
+    <link rel="prev" title="Simple_Bot module" href="Simple_Bot.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -42,17 +43,44 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="SQL.ReportsId.get_all_reports">
 <span class="sig-name descname"><span class="pre">get_all_reports</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#SQL.ReportsId.get_all_reports" title="Ссылка на это определение">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Получить репорты</p>
+<dl class="field-list simple">
+<dt class="field-odd">Результат<span class="colon">:</span></dt>
+<dd class="field-odd"><p>репорты</p>
+</dd>
+<dt class="field-even">Тип результата<span class="colon">:</span></dt>
+<dd class="field-even"><p>DontKnowType</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="SQL.ReportsId.get_all_tasks">
 <span class="sig-name descname"><span class="pre">get_all_tasks</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#SQL.ReportsId.get_all_tasks" title="Ссылка на это определение">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Получить таски</p>
+<dl class="field-list simple">
+<dt class="field-odd">Результат<span class="colon">:</span></dt>
+<dd class="field-odd"><p>таски</p>
+</dd>
+<dt class="field-even">Тип результата<span class="colon">:</span></dt>
+<dd class="field-even"><p>DontKnowType</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="SQL.ReportsId.task_update">
 <span class="sig-name descname"><span class="pre">task_update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Report</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#SQL.ReportsId.task_update" title="Ссылка на это определение">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Обновить таску</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>task</strong> (<em>DontKnowType</em>) – задача</p></li>
+<li><p><strong>Report</strong> (<em>DontKnowType</em>) – репорт</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -63,22 +91,65 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="SQL.SqlStudents.check_up">
 <span class="sig-name descname"><span class="pre">check_up</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chat_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#SQL.SqlStudents.check_up" title="Ссылка на это определение">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Взять имя из БД</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>chat_id</strong> (<em>int</em>) – id чата</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p>имя</p>
+</dd>
+<dt class="field-odd">Тип результата<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="SQL.SqlStudents.get_data_in_table">
 <span class="sig-name descname"><span class="pre">get_data_in_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">column</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chat_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#SQL.SqlStudents.get_data_in_table" title="Ссылка на это определение">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Получить информацию о пользователе из БД</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>column</strong> (<em>DontKnowType</em>) – колонна в БД</p></li>
+<li><p><strong>chat_id</strong> (<em>int</em>) – id чата</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="SQL.SqlStudents.log_in">
 <span class="sig-name descname"><span class="pre">log_in</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">info</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#SQL.SqlStudents.log_in" title="Ссылка на это определение">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Добавить пользователя в БД или проверка, что он уже там</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>info</strong> (<em>DontKnowType</em>) – информация о пользователе</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p>что нужно ответить</p>
+</dd>
+<dt class="field-odd">Тип результата<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="SQL.SqlStudents.update_data_in_table">
 <span class="sig-name descname"><span class="pre">update_data_in_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chat_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#SQL.SqlStudents.update_data_in_table" title="Ссылка на это определение">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Обновить информацию о пользователе</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>info</strong> (<em>DontKnowType</em>) – информация о пользователе</p></li>
+<li><p><strong>column</strong> (<em>DontKnowType</em>) – колонна в БД</p></li>
+<li><p><strong>chat_id</strong> (<em>int</em>) – id чата</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -101,11 +172,17 @@
 
 
 <h3>Навигация</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Simple_Bot.html">Simple_Bot module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">SQL module</a></li>
+</ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="Simple_Bot.html" title="предыдущая глава">Simple_Bot module</a></li>
   </ul></li>
 </ul>
 </div>

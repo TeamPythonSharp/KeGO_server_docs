@@ -10,7 +10,8 @@ Welcome to KeGO_server's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-
+   rst/Simple_Bot
+   rst/SQL
 
 Indices and tables
 ==================

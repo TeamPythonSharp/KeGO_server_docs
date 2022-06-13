@@ -7,6 +7,19 @@ class SqlStudents:
         self.connect = sqlite3.connect('Data_users.db', check_same_thread=False)
 
     def log_in(self, info):
+        '''
+        Добавить пользователя в БД или проверка, что он уже там
+
+        Parameters
+        ----------
+        info : DontKnowType
+            информация о пользователе
+
+        Returns
+        -------
+        string
+            что нужно ответить
+        '''
         cursor = self.connect.cursor()
 
         cursor.execute("""CREATE TABLE IF NOT EXISTS Students (
@@ -37,6 +50,19 @@ class SqlStudents:
             return 'такой пользователь есть в бд'
 
     def check_up(self, chat_id):
+        '''
+        Взять имя из БД
+
+        Parameters
+        ----------
+        chat_id : int
+            id чата
+
+        Returns
+        -------
+        string
+            имя
+        '''
         cursor = self.connect.cursor()
         cursor.execute(f"SELECT chat_id FROM Students WHERE chat_id = {chat_id}")
         data = cursor.fetchone()
@@ -48,6 +74,18 @@ class SqlStudents:
             return name[0]
 
     def update_data_in_table(self, info, column, chat_id):
+        '''
+        Обновить информацию о пользователе
+
+        Parameters
+        ----------
+        info : DontKnowType
+            информация о пользователе
+        column : DontKnowType
+            колонна в БД
+        chat_id : int
+            id чата
+        '''
         cursor = self.connect.cursor()
         cursor.execute(f"SELECT '{column}' FROM Students WHERE chat_id = {chat_id}")
         cursor.execute(f"""UPDATE Students SET 
@@ -56,6 +94,16 @@ class SqlStudents:
         self.connect.commit()
 
     def get_data_in_table(self, column, chat_id):
+        '''
+        Получить информацию о пользователе из БД
+
+        Parameters
+        ----------
+        column : DontKnowType
+            колонна в БД
+        chat_id : int
+            id чата
+        '''
         cursor = self.connect.cursor()
         cursor.execute(f"SELECT {column} FROM Students WHERE chat_id = {chat_id}")
         data = cursor.fetchone()
@@ -69,6 +117,16 @@ class ReportsId:
         self.chat_id = chat_id
 
     def task_update(self, task, Report):
+        '''
+        Обновить таску
+
+        Parameters
+        ----------
+        task : DontKnowType
+            задача
+        Report : DontKnowType
+            репорт
+        '''
         cursor = self.connect.cursor()
         cursor.execute(f"""CREATE TABLE IF NOT EXISTS id_{self.chat_id} (
             Tasks TEXT PRIMARY KEY,
@@ -93,12 +151,28 @@ class ReportsId:
             # return 'такой пользователь есть в бд'
 
     def get_all_tasks(self):
+        '''
+        Получить таски
+
+        Returns
+        -------
+        DontKnowType
+            таски
+        '''
         cursor = self.connect.cursor()
         cursor.execute(f"SELECT Tasks FROM id_{self.chat_id}")
         data = cursor.fetchall()
         return data
 
     def get_all_reports(self):
+        '''
+        Получить репорты
+
+        Returns
+        -------
+        DontKnowType
+            репорты
+        '''
         cursor = self.connect.cursor()
         cursor.execute(f"SELECT Report FROM id_{self.chat_id}")
         data = cursor.fetchall()

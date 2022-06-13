@@ -11,6 +11,9 @@ sql_student = SqlStudents()
 
 @bot.message_handler(commands=['start'])
 def start(message):
+    '''
+    Приветствие пользователя
+    '''
     markup = types.InlineKeyboardMarkup()
     call_btn = types.InlineKeyboardButton(text='Войти в аккаунт', callback_data='Войти в аккаунт')
     markup.add(call_btn)
@@ -34,11 +37,17 @@ def start(message):
 
 @bot.message_handler(commands=['help'])
 def help(message):
+    '''
+    Помощь в навигации
+    '''
     bot.send_message(message.chat.id, text='Я не виноват')
 
 
 @bot.message_handler(content_types=['text'])
 def get_name(message):
+    '''
+    Получить имя при регистрации
+    '''
     global user_name
     user_name = message.text
     bot.send_message(message.chat.id, text='📧 Отправь свою электронную почту:'.format(message.from_user))
@@ -46,6 +55,9 @@ def get_name(message):
 
 
 def get_email(message):
+    '''
+    Получить почту при регистрации
+    '''
     id_chat = message.chat.id
     email = message.text
     res_db = sql_student.log_in([id_chat, user_name, email])
@@ -56,6 +68,9 @@ def get_email(message):
 
 
 def get_task(message):
+    '''
+    Выбрать рефлексию
+    '''
     sql_report_id = ReportsId(ch_id)
     sql_student.update_data_in_table(message.text, 'my_task', message.chat.id)
     sql_report_id.task_update(message.text, '')
@@ -70,6 +85,9 @@ def get_task(message):
 
 
 def give_report(message):
+    '''
+    Дать репорт
+    '''
     markup = types.InlineKeyboardMarkup()
     call_btn78 = types.InlineKeyboardButton(text='Вернутся в главное меню', callback_data='GO')
     markup.add(call_btn78)
@@ -83,6 +101,9 @@ def give_report(message):
 
 
 def suitcase(message):
+    '''
+    Функция выбора разделов после раздела "Чемодан"
+    '''
     sql_student.update_data_in_table(message.text, 'suitcase', message.chat.id)
     text = 'Отлично! Заполни остальное'
     markup = types.InlineKeyboardMarkup()
@@ -97,6 +118,9 @@ def suitcase(message):
 
 
 def grinder(message):
+    '''
+    Функция выбора разделов после раздела "Мяорубка"
+    '''
     sql_student.update_data_in_table(message.text, 'grinder', message.chat.id)
     text = 'Молодец! Продолжай в том же духе'
     markup = types.InlineKeyboardMarkup()
@@ -110,6 +134,9 @@ def grinder(message):
 
 
 def basket(message):
+    '''
+    Функция выбора разделов после раздела "Ведро"
+    '''
     sql_student.update_data_in_table(message.text, 'basket', message.chat.id)
     text = 'Хорошо! У тебя отлично получается'
     markup = types.InlineKeyboardMarkup()
@@ -125,6 +152,9 @@ def basket(message):
 
 @bot.callback_query_handler(func=lambda call: True)
 def callback_inline(call):
+    '''
+    Функция выбора текстовых команд
+    '''
     markup = types.InlineKeyboardMarkup()
 
     if call.data == 'Войти в аккаунт':
